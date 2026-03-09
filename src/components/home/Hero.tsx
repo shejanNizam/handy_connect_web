@@ -1,3 +1,6 @@
+import Image from "next/image";
+import heroImage from "../../assets/banner_image.svg";
+
 export default function Hero() {
   return (
     <section className="w-full bg-white px-6 py-16 md:py-20 lg:py-24">
@@ -21,13 +24,12 @@ export default function Hero() {
           </div>
         </div>
         <div className="flex-1 flex justify-center items-center w-full">
-          {/* <Image
+          <Image
             src={heroImage}
             alt="Hero visual"
             className="w-full max-w-lg object-contain"
             priority
-          /> */}
-          <h1>image here</h1>
+          />
         </div>
       </div>
     </section>
