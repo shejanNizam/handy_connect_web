@@ -54,25 +54,31 @@ const professionalNavigation = [
       {
         name: "Job Requests",
         icon: MdWork,
-        href: "/professional-dashboard/job-request",
+
+        href: "/professional-dashboard/job-requests",
+        badge: 3,
       },
       {
         name: "Active Jobs",
         icon: MdAccessTime,
-        href: "/professional-dashboard/active-job",
+
+        href: "/professional-dashboard/active-jobs",
       },
       {
         name: "Earnings",
         icon: MdAttachMoney,
-        href: "/professional-dashboard/earning",
+
+        href: "/professional-dashboard/earnings",
       },
-      { name: "Reviews", 
-        icon: MdStar, 
-        href: "/professional-dashboard/review" 
+      {
+        name: "Reviews",
+        icon: MdStar,
+        href: "/professional-dashboard/reviews",
       },
-      { name: "Settings", 
-        icon: MdSettings, 
-        href: "/professional-dashboard/setting"
+      {
+        name: "Settings",
+        icon: MdSettings,
+        href: "/professional-dashboard/settings",
       },
     ],
   },
