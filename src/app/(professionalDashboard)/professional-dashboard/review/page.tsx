@@ -1,4 +1,4 @@
-// import { useState } from "react";   
+// import { useState } from "react";
 
 const reviews = [
   {
@@ -100,7 +100,9 @@ type ReviewCardProps = {
 function ReviewCard({ name, initials, color, rating, text }: ReviewCardProps) {
   return (
     <div className="bg-white rounded-xl border border-gray-100 shadow-sm px-5 py-4 flex items-start gap-4">
-      <div className={`${color} w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0`}>
+      <div
+        className={`${color} w-10 h-10 rounded-full flex items-center justify-center shrink-0`}
+      >
         <span className="text-white text-sm font-semibold">{initials}</span>
       </div>
       <div className="flex flex-col gap-1">
