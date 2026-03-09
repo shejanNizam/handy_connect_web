@@ -3,32 +3,59 @@ import { useState } from "react";
 
 const CheckIcon = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path d="M3 8L6.5 11.5L13 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M3 8L6.5 11.5L13 5"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
 const ThumbsDownIcon = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path d="M10 2H11.5C12.33 2 13 2.67 13 3.5V8.5C13 9.33 12.33 10 11.5 10H10M6 10L7 14H8C8.55 14 9 13.55 9 13V10M6 10H3.5C2.67 10 2 9.33 2 8.5V3.5C2 2.67 2.67 2 3.5 2H9L10 2V10H6Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M10 2H11.5C12.33 2 13 2.67 13 3.5V8.5C13 9.33 12.33 10 11.5 10H10M6 10L7 14H8C8.55 14 9 13.55 9 13V10M6 10H3.5C2.67 10 2 9.33 2 8.5V3.5C2 2.67 2.67 2 3.5 2H9L10 2V10H6Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
 const MapPinIcon = () => (
   <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-    <path d="M8 1C5.79 1 4 2.79 4 5C4 8.25 8 14 8 14C8 14 12 8.25 12 5C12 2.79 10.21 1 8 1ZM8 6.5C7.17 6.5 6.5 5.83 6.5 5C6.5 4.17 7.17 3.5 8 3.5C8.83 3.5 9.5 4.17 9.5 5C9.5 5.83 8.83 6.5 8 6.5Z" fill="#9CA3AF" />
+    <path
+      d="M8 1C5.79 1 4 2.79 4 5C4 8.25 8 14 8 14C8 14 12 8.25 12 5C12 2.79 10.21 1 8 1ZM8 6.5C7.17 6.5 6.5 5.83 6.5 5C6.5 4.17 7.17 3.5 8 3.5C8.83 3.5 9.5 4.17 9.5 5C9.5 5.83 8.83 6.5 8 6.5Z"
+      fill="#9CA3AF"
+    />
   </svg>
 );
 
 const ChatIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z"
+      stroke="white"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
 const CircleCheckIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
     <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
-    <path d="M7 12L10.5 15.5L17 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M7 12L10.5 15.5L17 9"
+      stroke="white"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -45,7 +72,6 @@ export default function JobDetailsCard() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="w-full max-w-5xl flex flex-col gap-3">
-
         {/* Profile Card */}
         <div className="bg-white rounded-2xl p-4 flex items-center justify-between shadow-sm">
           <div className="flex items-center gap-3">
@@ -54,7 +80,9 @@ export default function JobDetailsCard() {
               <p className="font-semibold text-gray-900 text-sm">Michael Ben</p>
               <div className="flex items-center gap-1 mt-0.5">
                 <MapPinIcon />
-                <span className="text-xs text-gray-400">22 Dizengoff St, Tel Aviv</span>
+                <span className="text-xs text-gray-400">
+                  22 Dizengoff St, Tel Aviv
+                </span>
               </div>
             </div>
           </div>
@@ -65,13 +93,17 @@ export default function JobDetailsCard() {
 
         {/* Job Details Card */}
         <div className="bg-white rounded-2xl p-4 shadow-sm">
-          <p className="text-sm font-semibold text-gray-700 mb-3">Job Details</p>
+          <p className="text-sm font-semibold text-gray-700 mb-3">
+            Job Details
+          </p>
 
           {/* Issue Box */}
           <div className="bg-gray-50 rounded-xl p-3 flex items-start justify-between mb-3 border border-gray-100">
             <div>
               <p className="text-xs text-gray-400 mb-1">Detected Issue</p>
-              <p className="text-sm font-semibold text-gray-800">Burst Pipe (Under Sink)</p>
+              <p className="text-sm font-semibold text-gray-800">
+                Burst Pipe (Under Sink)
+              </p>
             </div>
             <span className="text-xs text-gray-500 border border-gray-300 rounded-md px-2 py-0.5 whitespace-nowrap ml-2 mt-0.5">
               High Severity
@@ -87,7 +119,9 @@ export default function JobDetailsCard() {
           </div>
 
           {/* Price Fair */}
-          <p className="text-sm font-medium text-gray-700 mb-2">Is this price fair?</p>
+          <p className="text-sm font-medium text-gray-700 mb-2">
+            Is this price fair?
+          </p>
           <div className="flex gap-2">
             <button
               onClick={() => setPriceRating("good")}
@@ -130,7 +164,7 @@ export default function JobDetailsCard() {
                   />
                 )}
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0 ${
+                  className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 ${
                     step.active
                       ? "bg-green-500 text-white"
                       : "bg-gray-100 text-gray-400"
@@ -162,10 +196,9 @@ export default function JobDetailsCard() {
         <div className="bg-white rounded-2xl p-3 shadow-sm">
           <button className="w-full bg-amber-400 hover:bg-amber-500 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 transition-colors text-sm">
             <CircleCheckIcon />
-            I'm on The Way
+            {"I'm on The Way"}
           </button>
         </div>
-
       </div>
     </div>
   );

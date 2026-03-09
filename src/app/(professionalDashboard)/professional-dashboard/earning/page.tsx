@@ -21,15 +21,18 @@ export default function EarningsDashboard() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="w-full max-w-5xl bg-gray-100 rounded-2xl overflow-hidden space-y-3">
-
         {/* Total Earnings Card */}
         <div className="bg-amber-400 rounded-2xl p-5">
-          <p className="text-amber-700 text-xs font-medium mb-1">Total Earnings</p>
+          <p className="text-amber-700 text-xs font-medium mb-1">
+            Total Earnings
+          </p>
           <div className="flex items-center gap-1">
             <span className="text-3xl font-bold text-gray-900">₪12,450</span>
           </div>
           <div className="flex items-center gap-1 mt-1">
-            <span className="text-green-700 text-xs">🚀 +12% from last month</span>
+            <span className="text-green-700 text-xs">
+              🚀 +12% from last month
+            </span>
           </div>
         </div>
 
@@ -53,7 +56,9 @@ export default function EarningsDashboard() {
 
         {/* Recent Transactions */}
         <div className="bg-white rounded-2xl p-4">
-          <p className="text-gray-500 text-xs font-medium mb-3">Recent Transactions</p>
+          <p className="text-gray-500 text-xs font-medium mb-3">
+            Recent Transactions
+          </p>
           <div className="space-y-4">
             {transactions.map((tx) => (
               <div key={tx.id} className="flex items-center justify-between">
@@ -61,7 +66,9 @@ export default function EarningsDashboard() {
                   <p className="text-gray-900 text-sm font-medium">{tx.id}</p>
                   <p className="text-gray-400 text-xs">{tx.date}</p>
                 </div>
-                <span className="text-green-500 text-sm font-semibold">+₪{tx.amount}</span>
+                <span className="text-green-500 text-sm font-semibold">
+                  +₪{tx.amount}
+                </span>
               </div>
             ))}
           </div>
@@ -71,8 +78,18 @@ export default function EarningsDashboard() {
         <div className="bg-white rounded-2xl p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="bg-blue-100 rounded-lg p-2">
-              <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <svg
+                className="w-5 h-5 text-blue-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
               </svg>
             </div>
             <div>
@@ -85,12 +102,16 @@ export default function EarningsDashboard() {
 
         {/* Payout History */}
         <div className="bg-white rounded-2xl p-4">
-          <p className="text-gray-500 text-xs font-medium mb-3">Payout History</p>
+          <p className="text-gray-500 text-xs font-medium mb-3">
+            Payout History
+          </p>
           <div className="space-y-4">
             {payouts.map((payout, i) => (
               <div key={i} className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-900 text-sm font-medium">₪ {payout.amount}</p>
+                  <p className="text-gray-900 text-sm font-medium">
+                    ₪ {payout.amount}
+                  </p>
                   <p className="text-gray-400 text-xs">{payout.date}</p>
                 </div>
                 <span className="bg-green-100 text-green-600 text-xs px-3 py-1 rounded-full font-medium">
@@ -100,7 +121,6 @@ export default function EarningsDashboard() {
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );

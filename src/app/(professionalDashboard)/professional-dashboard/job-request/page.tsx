@@ -19,7 +19,8 @@ const sampleJobs: Job[] = [
     title: "Fix Running Toilet",
     category: "plumbing",
     client: "Emma Davis",
-    description: "Toilet keeps running after flushing. Probably needs new flapper.",
+    description:
+      "Toilet keeps running after flushing. Probably needs new flapper.",
     distance: "1.5 km away",
     schedule: "Flexible",
     priceMin: 60,
@@ -30,7 +31,8 @@ const sampleJobs: Job[] = [
     title: "Fix Running Toilet",
     category: "plumbing",
     client: "Emma Davis",
-    description: "Toilet keeps running after flushing. Probably needs new flapper.",
+    description:
+      "Toilet keeps running after flushing. Probably needs new flapper.",
     distance: "1.5 km away",
     schedule: "Flexible",
     priceMin: 60,
@@ -41,7 +43,8 @@ const sampleJobs: Job[] = [
     title: "Fix Running Toilet",
     category: "plumbing",
     client: "Emma Davis",
-    description: "Toilet keeps running after flushing. Probably needs new flapper.",
+    description:
+      "Toilet keeps running after flushing. Probably needs new flapper.",
     distance: "1.5 km away",
     schedule: "Flexible",
     priceMin: 60,
@@ -50,7 +53,9 @@ const sampleJobs: Job[] = [
 ];
 
 function JobCard({ job }: { job: Job }) {
-  const [status, setStatus] = useState<"pending" | "accepted" | "declined">("pending");
+  const [status, setStatus] = useState<"pending" | "accepted" | "declined">(
+    "pending",
+  );
 
   if (status === "declined") return null;
 
@@ -77,9 +82,7 @@ function JobCard({ job }: { job: Job }) {
 
       {/* Description */}
       <div className="bg-gray-50 border border-gray-100 rounded-lg px-4 py-3 mb-3">
-        <p className="text-sm text-gray-600">
-          "{job.description}"
-        </p>
+        <p className="text-sm text-gray-600">{job.description}</p>
       </div>
 
       {/* Meta info */}
@@ -110,7 +113,11 @@ function JobCard({ job }: { job: Job }) {
             viewBox="0 0 24 24"
           >
             <circle cx="12" cy="12" r="10" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 6v6l4 2"
+            />
           </svg>
           {job.schedule}
         </div>
@@ -134,7 +141,11 @@ function JobCard({ job }: { job: Job }) {
               strokeWidth={2.5}
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 13l4 4L19 7"
+              />
             </svg>
             Accept Job
           </button>
@@ -149,7 +160,11 @@ function JobCard({ job }: { job: Job }) {
               strokeWidth={2.5}
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
             Decline
           </button>
