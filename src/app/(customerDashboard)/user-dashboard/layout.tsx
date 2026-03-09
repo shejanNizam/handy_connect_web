@@ -16,7 +16,11 @@ export default function UserLayout({
   return (
     <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Sidebar */}
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <Sidebar
+        role="user"
+        isOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+      />
 
       {/* Overlay for mobile */}
       {isSidebarOpen && (

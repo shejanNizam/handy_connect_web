@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "@/app/(customerDashboard)/user-dashboard/components/sharedDashboardComp/Header";
-import SidebarProfessional from "@/app/(customerDashboard)/user-dashboard/components/sharedDashboardComp/SidebarProfessional";
+import Sidebar from "@/app/(customerDashboard)/user-dashboard/components/sharedDashboardComp/Sidebar";
 import { useState } from "react";
 
 export default function ProfessionalLayout({
@@ -16,7 +16,8 @@ export default function ProfessionalLayout({
   return (
     <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Sidebar */}
-      <SidebarProfessional
+      <Sidebar
+        role="professional"
         isOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
       />
