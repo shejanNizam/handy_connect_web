@@ -26,7 +26,7 @@ export default function AIDiagnosisPage() {
 
   const handleSendOffer = () => {
     setIsModalOpen(false);
-    router.push(`/user-dashboard/${currentCategory}/category/application`);
+    router.push(`/user-dashboard/application`);
   };
 
   return (

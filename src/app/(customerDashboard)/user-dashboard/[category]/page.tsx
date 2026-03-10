@@ -11,7 +11,7 @@ import {
   Switch,
   Upload,
 } from "antd";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   LuArrowRight,
@@ -29,8 +29,8 @@ export const dynamic = "force-dynamic";
 export default function ServiceDetails() {
   const [form] = Form.useForm();
   const router = useRouter();
-  const params = useParams();
-  const currentCategory = params.category;
+  // const params = useParams();
+  // const currentCategory = params.category;
 
   // Modal & Loading States
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -49,7 +49,7 @@ export default function ServiceDetails() {
     // Navigate to the target route after the "analysis" is done
     setTimeout(() => {
       setIsModalOpen(false);
-      router.push(`/user-dashboard/${currentCategory}/category`);
+      router.push(`/user-dashboard/category`);
     }, 2800);
   };
 
