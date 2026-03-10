@@ -176,12 +176,12 @@ function JobCard({ job }: { job: Job }) {
 
 export default function JobList() {
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-5xl mx-auto flex flex-col gap-4">
+    <>
+      <div className="w-full mx-auto flex flex-col gap-4">
         {sampleJobs.map((job) => (
           <JobCard key={job.id} job={job} />
         ))}
       </div>
-    </div>
+    </>
   );
 }

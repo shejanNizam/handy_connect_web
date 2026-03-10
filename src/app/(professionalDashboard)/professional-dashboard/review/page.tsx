@@ -118,8 +118,8 @@ function ReviewCard({ name, initials, color, rating, text }: ReviewCardProps) {
 
 export default function ReviewList() {
   return (
-    <div className="min-h-screen bg-slate-100 flex justify-center py-10 px-4">
-      <div className="w-full max-w-5xl flex flex-col gap-3">
+    <div className="flex justify-center">
+      <div className="w-full flex flex-col gap-3">
         {reviews.map((review) => (
           <ReviewCard key={review.id} {...review} />
         ))}

@@ -21,8 +21,8 @@ export default function PlumberDashboard() {
   const [jobAccepted, setJobAccepted] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6 font-sans">
-      <div className="max-w-5xl mx-auto">
+    <>
+      <div className="w-full mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-4">
@@ -312,6 +312,6 @@ export default function PlumberDashboard() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

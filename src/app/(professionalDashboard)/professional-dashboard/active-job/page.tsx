@@ -70,8 +70,8 @@ export default function JobDetailsCard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-5xl flex flex-col gap-3">
+    <div className="flex items-center justify-center">
+      <div className="w-full flex flex-col gap-3">
         {/* Profile Card */}
         <div className="bg-white rounded-2xl p-4 flex items-center justify-between shadow-sm">
           <div className="flex items-center gap-3">
