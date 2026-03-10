@@ -1,18 +1,7 @@
 "use client";
 import { useState } from "react";
 import { CheckCircle, Star, User, Shield, FileText, MapPin, PlusCircle, Trash2, ChevronRight, X, Camera, Upload } from "lucide-react";
-// import { useState } from "react";
-import {
-  CheckCircle,
-  Star,
-  User,
-  Shield,
-  FileText,
-  MapPin,
-  PlusCircle,
-  Trash2,
-  ChevronRight,
-} from "lucide-react";
+
 
 // ── Personal Info Modal ──────────────────────────────────────────────────────
 const PersonalInfoModal = ({ onClose }: { onClose: () => void }) => {
@@ -295,36 +284,6 @@ const ProfilePage = () => {
       {activeModal === "addServices"    && <AddServicesModal    onClose={() => setActiveModal(null)} />}
 
       <div className="w-full max-w-5xl space-y-4">
-    {
-      icon: <User size={20} className="text-gray-500" />,
-      label: "Personal Info",
-      badge: null,
-    },
-    {
-      icon: <Shield size={20} className="text-gray-500" />,
-      label: "ID Verification",
-      badge: "Verified",
-    },
-    {
-      icon: <FileText size={20} className="text-gray-500" />,
-      label: "Certificates",
-      badge: "3",
-    },
-    {
-      icon: <MapPin size={20} className="text-gray-500" />,
-      label: "Service Areas",
-      badge: null,
-    },
-    {
-      icon: <PlusCircle size={20} className="text-gray-500" />,
-      label: "Add Services",
-      badge: null,
-    },
-  ];
-
-  return (
-    <div className="flex items-center justify-center">
-      <div className="w-full space-y-4">
         {/* Profile Card */}
         <div className="bg-white rounded-2xl p-5 flex items-center gap-4 shadow-sm">
           <div className="w-14 h-14 rounded-full bg-slate-200 flex items-center justify-center shrink-0">
@@ -367,6 +326,7 @@ const ProfilePage = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   {cat.badge && (
+                    <>
                     <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${
                       cat.badge === "Verified" ? "bg-gray-100 text-gray-600 border border-gray-200" : "bg-gray-100 text-gray-700"
                     }`}>{cat.badge}</span>
@@ -379,6 +339,7 @@ const ProfilePage = () => {
                     >
                       {cat.badge}
                     </span>
+                    </>
                   )}
                   <ChevronRight size={18} className="text-gray-400" />
                 </div>
