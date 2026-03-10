@@ -35,8 +35,8 @@ export default function ProfessionalDetails() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] p-4 md:p-8 space-y-6">
-      <div className="max-w-4xl mx-auto space-y-6">
+    <div className="space-y-6">
+      <div className="w-full mx-auto space-y-6">
         {/* Profile Header Card */}
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex items-center gap-4">
           <div className="relative">
