@@ -9,31 +9,6 @@ import {
 } from "react-icons/md";
 
 export default function UserDashboard() {
-  // const categories = [
-  //   {
-  //     name: "Plumbing",
-  //     icon: MdOutlineWaterDrop,
-  //     href: "/user-dashboard/plumbing",
-  //   },
-  //   { name: "Carpentry", icon: LuHammer, href: "/user-dashboard/carpentry" },
-  //   { name: "Painting", icon: LuPaintbrush, href: "/user-dashboard/painting" },
-  //   {
-  //     name: "Electrical",
-  //     icon: MdOutlineElectricalServices,
-  //     href: "/user-dashboard/electrical",
-  //   },
-  //   {
-  //     name: "Cleaning",
-  //     icon: MdOutlineCleaningServices,
-  //     href: "/user-dashboard/cleaning",
-  //   },
-  //   {
-  //     name: "General",
-  //     icon: MdOutlineHandyman,
-  //     href: "/user-dashboard/general",
-  //   },
-  // ];
-
   const categories = [
     {
       name: "Plumbing",

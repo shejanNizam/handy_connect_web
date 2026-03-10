@@ -17,6 +17,7 @@ const payouts = [
 
 export default function EarningsDashboard() {
   const [filter, setFilter] = useState("All");
+  console.log(setFilter);
 
   return (
     <div className="flex items-center justify-center">
