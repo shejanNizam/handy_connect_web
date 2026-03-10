@@ -11,16 +11,21 @@ import {
   MdOutlineWarningAmber,
 } from "react-icons/md";
 
+export const dynamic = "force-dynamic";
+
 export default function AIDiagnosisPage() {
-  const params = useParams();
   const router = useRouter();
-  const currentCategory = params.category;
+
+  const params = useParams();
+  // const currentCategory = params?.category as string;
+
+  const currentCategory =
+    typeof params.category === "string" ? params.category : "";
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSendOffer = () => {
     setIsModalOpen(false);
-    router.push("/brenvg");
     router.push(`/user-dashboard/${currentCategory}/category/application`);
   };
 
