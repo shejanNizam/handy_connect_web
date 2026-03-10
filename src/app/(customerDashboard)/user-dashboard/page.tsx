@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { IconType } from "react-icons";
 import { LuHammer, LuPaintbrush } from "react-icons/lu";
 import {
   MdOutlineCleaningServices,
@@ -8,53 +9,36 @@ import {
   MdSearch,
 } from "react-icons/md";
 
+type Category = {
+  id: string;
+  name: string;
+  icon: IconType;
+};
+
+type RecentRequest = {
+  id: number;
+  title: string;
+  date: string;
+  status: string;
+};
+
+const categories: Category[] = [
+  { id: "plumbing", name: "Plumbing", icon: MdOutlineWaterDrop },
+  { id: "carpentry", name: "Carpentry", icon: LuHammer },
+  { id: "painting", name: "Painting", icon: LuPaintbrush },
+  { id: "electrical", name: "Electrical", icon: MdOutlineElectricalServices },
+  { id: "cleaning", name: "Cleaning", icon: MdOutlineCleaningServices },
+  { id: "general", name: "General", icon: MdOutlineHandyman },
+];
+
+const recentRequests: RecentRequest[] = [
+  { id: 1, title: "Kitchen Sink Leak", date: "Oct 24", status: "Complete" },
+  { id: 2, title: "Kitchen Sink Leak", date: "Oct 24", status: "Complete" },
+];
+
 export default function UserDashboard() {
-  const categories = [
-    {
-      id: 1,
-      name: "Plumbing",
-      icon: MdOutlineWaterDrop,
-      href: "/user-dashboard/plumbing",
-    },
-    {
-      id: 2,
-      name: "Carpentry",
-      icon: LuHammer,
-      href: "/user-dashboard/carpentry",
-    },
-    {
-      id: 3,
-      name: "Painting",
-      icon: LuPaintbrush,
-      href: "/user-dashboard/painting",
-    },
-    {
-      id: 4,
-      name: "Electrical",
-      icon: MdOutlineElectricalServices,
-      href: "/user-dashboard/electrical",
-    },
-    {
-      id: 5,
-      name: "Cleaning",
-      icon: MdOutlineCleaningServices,
-      href: "/user-dashboard/cleaning",
-    },
-    {
-      id: 6,
-      name: "General",
-      icon: MdOutlineHandyman,
-      href: "/user-dashboard/general",
-    },
-  ];
-
-  const recentRequests = [
-    { id: 1, title: "Kitchen Sink Leak", date: "oct 24", status: "Complete" },
-    { id: 2, title: "Kitchen Sink Leak", date: "oct 24", status: "Complete" },
-  ];
-
   return (
-    <div className=" bg-[#F8FAFC] dark:bg-gray-900">
+    <div className="bg-[#F8FAFC] dark:bg-gray-900">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
         <div>
@@ -77,11 +61,11 @@ export default function UserDashboard() {
         </div>
       </div>
 
-      {/* Recent Request Section */}
+      {/* Recent Requests Section */}
       <div className="mb-10">
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-bold text-gray-900 dark:text-white">
-            Recent Request
+            Recent Requests
           </h3>
           <Link
             href="/user-dashboard/my-requests"
@@ -106,12 +90,12 @@ export default function UserDashboard() {
                     {request.title}
                   </h4>
                   <p className="text-xs text-blue-400 font-medium">
-                    {request.date} - {request.status}
+                    {request.date} · {request.status}
                   </p>
                 </div>
               </div>
               <span className="px-3 py-1 bg-cyan-50 dark:bg-cyan-900/20 text-[#64748B] text-[10px] font-bold rounded-lg uppercase tracking-wider">
-                IN Process
+                In Process
               </span>
             </div>
           ))}
@@ -124,10 +108,10 @@ export default function UserDashboard() {
           Categories
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {categories?.map((category) => (
+          {categories.map((category) => (
             <Link
               key={category.id}
-              href={category.href}
+              href={`/user-dashboard/${category.id}`}
               className="group flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-50 dark:border-gray-700 shadow-sm hover:shadow-md hover:border-blue-100 transition-all"
             >
               <div className="w-14 h-14 bg-[#F1F5F9] dark:bg-gray-700 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-50 transition-colors">
