@@ -11,23 +11,37 @@ import {
 export default function UserDashboard() {
   const categories = [
     {
+      id: 1,
       name: "Plumbing",
       icon: MdOutlineWaterDrop,
       href: "/user-dashboard/plumbing",
     },
-    { name: "Carpentry", icon: LuHammer, href: "/user-dashboard/carpentry" },
-    { name: "Painting", icon: LuPaintbrush, href: "/user-dashboard/painting" },
     {
+      id: 2,
+      name: "Carpentry",
+      icon: LuHammer,
+      href: "/user-dashboard/carpentry",
+    },
+    {
+      id: 3,
+      name: "Painting",
+      icon: LuPaintbrush,
+      href: "/user-dashboard/painting",
+    },
+    {
+      id: 4,
       name: "Electrical",
       icon: MdOutlineElectricalServices,
       href: "/user-dashboard/electrical",
     },
     {
+      id: 5,
       name: "Cleaning",
       icon: MdOutlineCleaningServices,
       href: "/user-dashboard/cleaning",
     },
     {
+      id: 6,
       name: "General",
       icon: MdOutlineHandyman,
       href: "/user-dashboard/general",
@@ -112,7 +126,7 @@ export default function UserDashboard() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {categories?.map((category) => (
             <Link
-              key={category.name}
+              key={category.id}
               href={category.href}
               className="group flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-50 dark:border-gray-700 shadow-sm hover:shadow-md hover:border-blue-100 transition-all"
             >
