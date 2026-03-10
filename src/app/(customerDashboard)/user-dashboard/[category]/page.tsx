@@ -24,6 +24,7 @@ import {
 } from "react-icons/lu";
 
 const { TextArea } = Input;
+export const dynamic = "force-dynamic";
 
 export default function ServiceDetails() {
   const [form] = Form.useForm();

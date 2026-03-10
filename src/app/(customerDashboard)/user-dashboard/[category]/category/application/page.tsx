@@ -12,6 +12,8 @@ import {
 } from "react-icons/io5";
 import { LuSparkles } from "react-icons/lu";
 
+export const dynamic = "force-dynamic";
+
 export default function Application() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
