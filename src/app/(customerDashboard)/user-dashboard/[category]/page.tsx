@@ -1,108 +1,325 @@
-"use client";
+"use client"; // Mandatory for interactivity in App Router
 
-import { useParams, useRouter } from "next/navigation";
 import {
-  MdCheckCircleOutline,
-  MdFavoriteBorder,
-  MdOutlineWarningAmber,
-} from "react-icons/md";
+  Button,
+  Checkbox,
+  Form,
+  Input,
+  Modal,
+  Progress,
+  Select,
+  Switch,
+  Upload,
+} from "antd";
+import { useParams, useRouter } from "next/navigation";
+import { useState } from "react";
+import {
+  LuArrowRight,
+  LuCalculator,
+  LuFileSearch,
+  LuScan,
+  LuSparkles,
+  LuUpload,
+  LuUserCheck,
+} from "react-icons/lu";
 
-export default function AIDiagnosisPage() {
-  const params = useParams();
+const { TextArea } = Input;
+
+export default function ServiceDetails() {
+  const [form] = Form.useForm();
   const router = useRouter();
-  const category = params.category; // e.g., "plumbing"
+  const params = useParams();
+  const currentCategory = params.category;
+
+  // Modal & Loading States
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loadingStep, setLoadingStep] = useState(1);
+
+  const handleSendRequest = () => {
+    setIsModalOpen(true);
+    setLoadingStep(1);
+
+    // Step-by-step animation logic
+    const intervals = [500, 1000, 1500, 2000];
+    intervals.forEach((ms, index) => {
+      setTimeout(() => setLoadingStep(index + 1), ms);
+    });
+
+    // Navigate to the target route after the "analysis" is done
+    setTimeout(() => {
+      setIsModalOpen(false);
+      router.push(`/user-dashboard/${currentCategory}/category`);
+    }, 2800);
+  };
+
+  const steps = [
+    { id: 1, label: "Scanning uploaded media", icon: <LuScan /> },
+    { id: 2, label: "Identifying the issue", icon: <LuFileSearch /> },
+    { id: 3, label: "Estimating repair costs", icon: <LuCalculator /> },
+    { id: 4, label: "Matching professionals", icon: <LuUserCheck /> },
+  ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] p-4 md:p-8 space-y-4">
-      {/* Main Diagnosis Card */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-        <div className="flex items-center gap-2 mb-6">
-          <MdCheckCircleOutline className="text-amber-500 text-2xl" />
-          <h2 className="text-lg font-bold text-gray-800">AI Diagnosis</h2>
-        </div>
+    <>
+      <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Left Section: Service Forms */}
+        <div className="lg:col-span-8 space-y-6">
+          <div className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
+            <h2 className="text-2xl font-bold mb-8 text-gray-900">
+              Service Details
+            </h2>
 
-        {/* Detected Issue Section */}
-        <div className="bg-[#F8FAFC] rounded-xl p-6 mb-6 relative">
-          <p className="text-xs font-semibold text-gray-400 uppercase mb-2">
-            Detected Issue
-          </p>
-          <h3 className="text-xl font-bold text-gray-900">
-            Burst Pipe (Under Sink)
-          </h3>
-          <span className="absolute top-6 right-6 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">
-            High Severity
-          </span>
-        </div>
+            <Form form={form} layout="vertical" requiredMark={false}>
+              <Form.Item
+                label={
+                  <span className="font-bold text-gray-600 text-sm">
+                    Service Category
+                  </span>
+                }
+                name="category"
+              >
+                <Select
+                  placeholder="Select a category"
+                  size="large"
+                  className="w-full h-12 rounded-xl"
+                />
+              </Form.Item>
 
-        {/* Suggested Cause */}
-        <div className="mb-8">
-          <h4 className="text-sm font-bold text-gray-800 mb-2">
-            Suggested Cause
-          </h4>
-          <p className="text-sm text-gray-500 leading-relaxed">
-            Likely caused by corrosion or high water pressure affecting the
-            joint connection. Immediate attention recommended to prevent water
-            damage.
-          </p>
-        </div>
+              <Form.Item
+                label={
+                  <span className="font-bold text-gray-600 text-sm">
+                    Problem Description
+                  </span>
+                }
+                name="description"
+              >
+                <TextArea
+                  rows={5}
+                  placeholder="Describe the issue in detail. What needs to be fixed or installed?"
+                  className="rounded-2xl border-gray-200 p-4 text-sm"
+                />
+              </Form.Item>
 
-        {/* Price and Professional Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="border border-gray-100 rounded-xl p-6">
-            <p className="text-xs font-medium text-gray-400 mb-1">Est. Price</p>
-            <p className="text-xl font-bold text-green-600">€350 - €500</p>
+              <Form.Item
+                label={
+                  <span className="font-bold text-gray-600 text-sm">
+                    Upload Media (Optional)
+                  </span>
+                }
+              >
+                <Upload.Dragger className="bg-[#FAFBFF] border-dashed border-2 border-blue-100 rounded-3xl py-12 hover:border-blue-400! transition-all">
+                  <div className="flex flex-col items-center">
+                    <div className="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mb-4">
+                      <LuUpload size={32} />
+                    </div>
+                    <p className="font-bold text-gray-800 text-lg">
+                      Click to upload or drag and drop
+                    </p>
+                    <p className="text-gray-400 text-sm mt-1">
+                      SVG, PNG, JPG or GIF (max. 800×400px)
+                    </p>
+                  </div>
+                </Upload.Dragger>
+              </Form.Item>
+            </Form>
           </div>
-          <div className="border border-gray-100 rounded-xl p-6">
-            <p className="text-xs font-medium text-gray-400 mb-1">
-              Professional
-            </p>
-            <p className="text-xl font-bold text-gray-900 capitalize">
-              {category}
+
+          {/* Location & Urgency */}
+          <div className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
+            <h2 className="text-2xl font-bold mb-8 text-gray-900">
+              Location & Urgency
+            </h2>
+            <div className="space-y-8">
+              <div>
+                <p className="font-bold text-gray-600 text-sm mb-3">Zip Code</p>
+                <Input
+                  placeholder="e.g. 10001"
+                  size="large"
+                  className="h-12 rounded-xl bg-gray-50 border-gray-100"
+                />
+              </div>
+
+              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <div className="flex items-center gap-4">
+                  <div className="bg-red-50 p-3 rounded-xl text-red-500">
+                    ⚠️
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900">Emergency Service</p>
+                    <p className="text-gray-400 text-xs">
+                      Immediate assistance within 2 hours
+                    </p>
+                  </div>
+                </div>
+                <Switch size="default" className="bg-gray-200" />
+              </div>
+
+              <div className="bg-[#FFFBF2] border border-[#FFD9A0] p-6 rounded-2xl flex items-start gap-4 transition-all hover:shadow-md hover:shadow-orange-50">
+                <Checkbox className="mt-1 scale-125 accent-orange-500" />
+                <div>
+                  <p className="font-bold text-gray-900 flex items-center gap-2 text-lg">
+                    Priority Matching{" "}
+                    <LuSparkles className="text-yellow-500 animate-pulse" />
+                  </p>
+                  <p className="text-gray-500 text-sm leading-relaxed mt-1">
+                    Boost your request to get quotes faster from top-rated
+                    professionals in your area.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Section: Request Summary Sidebar */}
+        <div className="lg:col-span-4">
+          <div className="bg-white p-8 rounded-3xl shadow-xl shadow-gray-100/50 border border-gray-50 sticky">
+            <h2 className="text-xl font-bold mb-8 text-gray-900">
+              Request Summary
+            </h2>
+
+            <div className="space-y-5 mb-8 border-b border-gray-50 pb-8">
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-gray-400 font-medium">Category</span>
+                <span className="font-bold text-gray-900 bg-gray-100 px-3 py-1 rounded-lg">
+                  Not selected
+                </span>
+              </div>
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-gray-400 font-medium">Urgency</span>
+                <span className="font-bold text-gray-900 bg-gray-100 px-3 py-1 rounded-lg">
+                  Standard
+                </span>
+              </div>
+            </div>
+
+            <div className="bg-orange-50/50 p-6 rounded-2xl mb-8 border border-orange-100/50">
+              <p className="font-bold text-orange-900 mb-5 text-sm uppercase tracking-wider">
+                Process flow
+              </p>
+              <div className="space-y-6">
+                {[
+                  "Professionals are notified.",
+                  "Receive quotes in minutes.",
+                  "Compare and hire the best.",
+                ].map((text, i) => (
+                  <div key={i} className="flex gap-4 items-center">
+                    <span className="w-6 h-6 rounded-full bg-orange-400 text-white flex items-center justify-center text-[10px] font-black shrink-0">
+                      {i + 1}
+                    </span>
+                    <p className="text-xs font-bold text-gray-700 leading-tight">
+                      {text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <Button
+              block
+              onClick={handleSendRequest}
+              className="h-16 bg-[#F59E0B] hover:bg-[#D97706]! text-white border-none font-bold text-lg rounded-2xl flex items-center justify-center gap-2 shadow-xl shadow-orange-200 transition-all hover:-translate-y-1 active:scale-95"
+            >
+              Send Request <LuArrowRight />
+            </Button>
+
+            <p className="text-center text-[11px] text-gray-400 mt-6 font-medium">
+              No payment is required to post a request.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Fairness Notice */}
-      <div className="bg-white rounded-2xl p-5 border border-gray-100 flex items-center gap-4">
-        <MdFavoriteBorder className="text-green-500 text-2xl shrink-0" />
-        <div>
-          <h5 className="text-sm font-bold text-gray-800">
-            To be fair to everybody:
-          </h5>
-          <p className="text-xs text-gray-500">
-            Tradesmen are very busy. Please only send an application if you are
-            serious.
-          </p>
-        </div>
-      </div>
+      {/* Analysis Step Modal (Second Image) */}
+      <Modal
+        open={isModalOpen}
+        footer={null}
+        closable={false}
+        centered
+        width={520}
+      >
+        <div className="space-y-10">
+          <div className="flex items-center gap-5">
+            <div className="w-16 h-16 bg-[#FFF7E8] text-[#F59E0B] rounded-2xl flex items-center justify-center shadow-inner">
+              <LuSparkles size={32} className="animate-spin-slow" />
+            </div>
+            <div>
+              <h2 className="text-3xl font-black text-gray-900 tracking-tight">
+                Analyzing Issue
+              </h2>
+              <p className="text-gray-400 text-sm mt-1 font-bold">
+                Processing step {loadingStep} of 4
+              </p>
+            </div>
+          </div>
 
-      {/* Disclaimer Notice */}
-      <div className="bg-white rounded-2xl p-5 border border-gray-100 flex items-start gap-4">
-        <MdOutlineWarningAmber className="text-amber-500 text-2xl shrink-0 mt-1" />
-        <div>
-          <h5 className="text-sm font-bold text-gray-800">
-            AI Price Estimate Disclaimer
-          </h5>
-          <p className="text-xs text-gray-500 leading-relaxed">
-            This is an AI-generated estimate and may not be accurate. Final
-            pricing will be determined by the professional after inspection.
-          </p>
-        </div>
-      </div>
+          {/* Custom Progress Bar */}
+          <div className="space-y-3">
+            <Progress
+              percent={loadingStep * 25}
+              showInfo={false}
+              strokeColor="#F59E0B"
+              trailColor="#F1F5F9"
+              strokeWidth={14}
+              className="m-0"
+            />
+            <div className="flex justify-between px-2">
+              {[1, 2, 3, 4].map((dot) => (
+                <div
+                  key={dot}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-500 ${
+                    loadingStep >= dot
+                      ? "bg-[#F59E0B] scale-125"
+                      : "bg-gray-200"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
 
-      {/* Action Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 pt-4">
-        <button
-          onClick={() => router.back()}
-          className="flex-1 py-4 bg-white border border-gray-200 rounded-xl font-bold text-gray-600 hover:bg-gray-50 transition-colors"
-        >
-          Back
-        </button>
-        <button className="flex-2 py-4 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-bold shadow-lg shadow-amber-500/20 transition-all">
-          Send an offer
-        </button>
-      </div>
-    </div>
+          <div className="flex gap-5 items-center bg-blue-50/40 p-5 rounded-3xl border border-blue-50">
+            <div className="p-4 bg-white text-blue-500 rounded-2xl shadow-sm">
+              <LuScan size={28} className="animate-pulse" />
+            </div>
+            <div>
+              <p className="font-black text-gray-900 text-lg">
+                Scanning uploaded media...
+              </p>
+              <p className="text-gray-500 text-sm font-medium">
+                AI is identifying visual patterns and damage severity.
+              </p>
+            </div>
+          </div>
+
+          {/* Checklist Container */}
+          <div className="bg-[#F8FAFC] rounded-3xl p-8 space-y-6 border border-gray-100">
+            {steps.map((step) => (
+              <div key={step.id} className="flex items-center gap-5">
+                <div
+                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    loadingStep >= step.id
+                      ? "bg-[#F59E0B] text-white shadow-lg shadow-orange-100 scale-110"
+                      : "bg-white text-gray-300 border border-gray-100"
+                  }`}
+                >
+                  {loadingStep > step.id ? (
+                    <LuUserCheck size={20} />
+                  ) : (
+                    step.icon
+                  )}
+                </div>
+                <p
+                  className={`font-black text-sm tracking-wide transition-colors ${
+                    loadingStep >= step.id ? "text-gray-800" : "text-gray-300"
+                  }`}
+                >
+                  {step.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Modal>
+    </>
   );
 }

@@ -30,7 +30,7 @@ const professionals = [
 
 export default function Professionals() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] space-y-6">
+    <div className=" space-y-6">
       <div className="w-full mx-auto space-y-4">
         {professionals.map((pro) => (
           <div
@@ -75,7 +75,7 @@ export default function Professionals() {
 
                 {/* Right Arrow Link */}
                 <Link
-                  href={`/professionals/${pro.id}`}
+                  href={`/user-dashboard/professionals/${pro.id}`}
                   className="p-2 text-amber-500 hover:bg-amber-50 rounded-full transition-colors"
                 >
                   <MdChevronRight size={32} />
@@ -92,7 +92,7 @@ export default function Professionals() {
                 </div>
 
                 <Link
-                  href={`/professionals/${pro.id}/request`}
+                  href={`/user-dashboard/professionals/request`}
                   className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg shadow-amber-500/20 transition-all text-center"
                 >
                   Send Request

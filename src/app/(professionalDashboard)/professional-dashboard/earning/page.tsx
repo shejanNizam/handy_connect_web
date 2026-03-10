@@ -17,10 +17,11 @@ const payouts = [
 
 export default function EarningsDashboard() {
   const [filter, setFilter] = useState("All");
+  console.log(setFilter);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-5xl bg-gray-100 rounded-2xl overflow-hidden space-y-3">
+    <div className="flex items-center justify-center">
+      <div className="w-full bg-gray-100 rounded-2xl overflow-hidden space-y-3">
         {/* Total Earnings Card */}
         <div className="bg-amber-400 rounded-2xl p-5">
           <p className="text-amber-700 text-xs font-medium mb-1">
