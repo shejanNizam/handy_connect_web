@@ -19,8 +19,7 @@ export default function Profile() {
   const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
   const [form] = Form.useForm();
 
-  const handleFinish = (values: any) => {
-    console.log("Saved Addresses:", values);
+  const handleFinish = () => {
     setIsAddressModalOpen(false);
   };
 
