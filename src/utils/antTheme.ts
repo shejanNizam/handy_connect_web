@@ -1,7 +1,7 @@
 export const mainTheme = {
   token: {
     colorPrimary: "#f59e0b",
-    colorInfo: "#1183bd",
+    colorInfo: "#f59e0b",
   },
   components: {
     Table: {
@@ -34,7 +34,7 @@ export const mainTheme = {
       colorSuccess: "#2563EB",
     },
     Form: {
-      labelColor: "#FFEB3B",
+      labelColor: "#f59e0b",
       labelFontFamily: "'Raleway', sans-serif",
       labelFontWeight: 700,
       labelFontSize: 16,
@@ -45,13 +45,13 @@ export const mainTheme = {
       inputLineHeight: 20,
     },
     Input: {
-      colorBorder: "#2563EB",
+      colorBorder: "#f59e0b",
       colorTextPlaceholder: "#666666",
       borderRadius: 4,
       controlHeight: 40,
     },
     InputPassword: {
-      colorBorder: "#2563EB",
+      colorBorder: "#f59e0b",
       borderRadius: 4,
       controlHeight: 80,
       colorTextPlaceholder: "#666666",
@@ -60,15 +60,15 @@ export const mainTheme = {
       colorBorder: "#666666",
     },
     Select: {
-      colorBorder: "#2563EB",
+      colorBorder: "#f59e0b",
       borderRadius: 8,
       controlHeight: 40,
       colorTextPlaceholder: "#666666",
     },
     DatePicker: {
-      colorBorder: "#2563EB",
+      colorBorder: "#f59e0b",
       colorTextPlaceholder: "#000000",
-      colorIcon: "#2563EB",
+      colorIcon: "#f59e0b",
       activeBg: "rgba(255, 255, 255, 0)",
     },
     Collapse: {
@@ -83,11 +83,11 @@ export const mainTheme = {
       borderRadius: 20,
     },
     Tabs: {
-      itemActiveColor: "#2563EB",
-      colorPrimary: "#2563EB",
-      colorText: "#2563EB",
-      colorTextHeading: "#2563EB",
-      colorBorderSecondary: "#2563EB",
+      itemActiveColor: "#f59e0b",
+      colorPrimary: "#f59e0b",
+      colorText: "#f59e0b",
+      colorTextHeading: "#f59e0b",
+      colorBorderSecondary: "#f59e0b",
       itemColor: "#666666",
       itemSelectedColor: "#2563EB",
       itemHoverColor: "#2563EB",

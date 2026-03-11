@@ -105,6 +105,12 @@ const ForgotPassword: React.FC = () => {
     router.back();
   };
 
+  const inputStyle = {
+    backgroundColor: token.colorBgContainer,
+    color: token.colorText,
+    height: 48,
+  };
+
   // ==================== RENDER ====================
   return (
     <div className="min-h-screen w-full flex flex-col justify-center items-center px-4 py-12 bg-gray-100 dark:bg-gray-900 transition-colors">
@@ -120,10 +126,10 @@ const ForgotPassword: React.FC = () => {
 
         {/* ==================== HEADER ==================== */}
         <div className="flex flex-col items-center mb-6">
-          <h2 className="text-2xl md:text-3xl font-semibold mt-4 text-blue-600 dark:text-blue-400 transition-colors">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white text-center">
             Forgot Password
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mt-2 transition-colors">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
             Enter your account email to receive OTP
           </p>
         </div>
@@ -156,13 +162,10 @@ const ForgotPassword: React.FC = () => {
           >
             <Input
               size="large"
-              placeholder="Enter your email"
+              placeholder="Esteban_schiller@gmail.com"
               aria-label="Email Address"
               className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600 transition-colors"
-              style={{
-                backgroundColor: token.colorBgContainer,
-                color: token.colorText,
-              }}
+              style={inputStyle}
             />
           </Form.Item>
 

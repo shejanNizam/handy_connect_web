@@ -186,7 +186,7 @@ export default function Sidebar({ isOpen, toggleSidebar, role }: SidebarProps) {
 
         {/* Navigation */}
         <nav className="flex-1 px-3 py-6 overflow-y-auto custom-scrollbar min-h-0">
-          {navigation.map((section) => (
+          {navigation?.map((section) => (
             <div key={section.section} className="mb-6">
               {navigation.length > 1 && (
                 <h3 className="px-3 mb-2 text-xs font-semibold text-gray-500 dark:text-gray-600 uppercase tracking-wider">
@@ -201,10 +201,10 @@ export default function Sidebar({ isOpen, toggleSidebar, role }: SidebarProps) {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
+                        className={`flex items-center gap-3 p-4 rounded-xl transition-colors ${
                           isActive
-                            ? "bg-gray-700 dark:bg-gray-800 text-white"
-                            : "text-gray-400 hover:bg-gray-800 dark:hover:bg-gray-800/50 hover:text-white"
+                            ? "bg-primary/10 border-l-4 border-primary   text-white"
+                            : "text-gray-400 hover:bg-primary/20 hover:text-white"
                         }`}
                       >
                         <Icon className="w-5 h-5 shrink-0" />
