@@ -32,7 +32,7 @@ export default function Professionals() {
   return (
     <div className=" space-y-6">
       <div className="w-full mx-auto space-y-4">
-        {professionals.map((pro) => (
+        {professionals?.map((pro) => (
           <div
             key={pro.id}
             className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
