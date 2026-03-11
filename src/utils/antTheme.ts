@@ -1,6 +1,6 @@
 export const mainTheme = {
   token: {
-    colorPrimary: "#2563EB",
+    colorPrimary: "#f59e0b",
     colorInfo: "#1183bd",
   },
   components: {
@@ -19,10 +19,10 @@ export const mainTheme = {
       iconSize: 24,
     },
     Button: {
-      colorPrimary: "#2563EB",
+      colorPrimary: "#f59e0b",
       colorTextDisabled: "#000000",
-      colorPrimaryHover: "#2083d4",
-      colorPrimaryActive: "#2083d4",
+      colorPrimaryHover: "#f59e0b",
+      colorPrimaryActive: "#f59e0b",
       colorBgContainerDisabled: "#ffffff",
       borderRadius: 6,
       fontSize: 14,

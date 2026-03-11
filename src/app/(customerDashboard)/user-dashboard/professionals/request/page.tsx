@@ -91,9 +91,11 @@ export default function SendRequest() {
           Your review has been submitted successfully. It helps the community
           find great professionals.
         </p>
-        <button className="mt-4 bg-[#2563EB] text-white px-10 py-3 rounded-xl font-bold shadow-lg shadow-blue-100 hover:bg-blue-700 transition-all active:scale-95">
-          Back to Dashboard
-        </button>
+        <Link href="/user-dashboard">
+          <button className=" cursor-pointer mt-4 bg-[#2563EB] text-white px-10 py-3 rounded-xl font-bold shadow-lg shadow-blue-100 hover:bg-blue-700 transition-all active:scale-95">
+            Back to Dashboard
+          </button>
+        </Link>
       </div>
     </div>
   );
