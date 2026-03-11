@@ -43,6 +43,7 @@ const userNavigation = [
         icon: MdNotifications,
         href: "/user-dashboard/notifications",
       },
+      { name: "Message", icon: MdPerson, href: "/user-dashboard/message" },
       { name: "Profile", icon: MdPerson, href: "/user-dashboard/profile" },
     ],
   },
@@ -159,19 +160,18 @@ export default function Sidebar({ isOpen, toggleSidebar, role }: SidebarProps) {
       <aside
         className={`
           fixed top-0 bottom-0 left-0 z-30
-          w-64 bg-[#1a1d29] dark:bg-gray-950 text-gray-300
+          w-64 bg-white text-black
           flex flex-col
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
         `}
       >
         {/* Logo & Close Button */}
-        <div className="p-6 border-b border-gray-700 dark:border-gray-800 flex items-center justify-between shrink-0">
+        <div className="p-6 border-b border-gray-200 flex items-center justify-between shrink-0">
           <Link href="/" className="flex flex-col flex-1">
             <Image
               width={1000}
               height={1000}
-              className="w-12 h-12 rounded-full border-4 border-primary"
               src={main_logo}
               alt="profile_image"
             />
@@ -186,10 +186,10 @@ export default function Sidebar({ isOpen, toggleSidebar, role }: SidebarProps) {
 
         {/* Navigation */}
         <nav className="flex-1 px-3 py-6 overflow-y-auto custom-scrollbar min-h-0">
-          {navigation.map((section) => (
+          {navigation?.map((section) => (
             <div key={section.section} className="mb-6">
               {navigation.length > 1 && (
-                <h3 className="px-3 mb-2 text-xs font-semibold text-gray-500 dark:text-gray-600 uppercase tracking-wider">
+                <h3 className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider">
                   {section.section}
                 </h3>
               )}
@@ -201,10 +201,10 @@ export default function Sidebar({ isOpen, toggleSidebar, role }: SidebarProps) {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
+                        className={`flex items-center gap-3 p-4 rounded-xl transition-colors ${
                           isActive
-                            ? "bg-gray-700 dark:bg-gray-800 text-white"
-                            : "text-gray-400 hover:bg-gray-800 dark:hover:bg-gray-800/50 hover:text-white"
+                            ? "bg-primary/10 border-l-4 border-primary text-primary"
+                            : "text-black hover:bg-primary/20 hover:text-primary"
                         }`}
                       >
                         <Icon className="w-5 h-5 shrink-0" />
@@ -226,10 +226,10 @@ export default function Sidebar({ isOpen, toggleSidebar, role }: SidebarProps) {
         </nav>
 
         {/* User Profile */}
-        <div className="p-4 border-t border-gray-700 dark:border-gray-800 shrink-0">
+        <div className="p-4 border-t border-gray-200 dark:border-gray-800 shrink-0">
           <button
             onClick={handleLogout}
-            className="flex  items-center gap-2 text-red-500 cursor-pointer"
+            className="w-full flex items-center gap-2 text-red-500 cursor-pointer bg-primary/20 p-4 rounded-xl transition-colors"
           >
             <IoIosLogOut size={24} />
             Logout

@@ -267,11 +267,11 @@ const VerifyCodeContent: React.FC = () => {
         </button>
 
         {/* ==================== HEADER ==================== */}
-        <div className="flex flex-col items-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-semibold mt-4 text-blue-600 dark:text-blue-400 transition-colors">
+        <div className="flex flex-col items-center mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white text-center">
             Verify Code
           </h2>
-          <p className="text-center text-gray-600 dark:text-gray-400 mt-2 transition-colors">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
             Enter the 6-digit code sent to
           </p>
           <p className="text-center text-gray-900 dark:text-white font-semibold mt-1 transition-colors">
@@ -321,15 +321,13 @@ const VerifyCodeContent: React.FC = () => {
           {!canResend ? (
             <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors">
               Resend code in{" "}
-              <span className="font-semibold text-blue-600 dark:text-blue-400">
-                {resendTimer}s
-              </span>
+              <span className="font-semibold text-primary">{resendTimer}s</span>
             </p>
           ) : (
             <button
               onClick={handleResendOTP}
               disabled={isResending}
-              className="text-blue-600 dark:text-blue-400 font-semibold text-sm underline hover:opacity-80 transition-opacity disabled:opacity-50"
+              className="text-primary font-semibold text-sm underline hover:opacity-80 transition-opacity disabled:opacity-50"
             >
               {isResending ? "Sending..." : "Resend Code"}
             </button>
@@ -341,7 +339,7 @@ const VerifyCodeContent: React.FC = () => {
           Remembered your password?{" "}
           <Link
             href="/login"
-            className="text-blue-600 dark:text-blue-400 font-bold underline hover:opacity-80 transition-opacity"
+            className="text-primary font-bold underline hover:opacity-80 transition-opacity"
           >
             Log In
           </Link>
