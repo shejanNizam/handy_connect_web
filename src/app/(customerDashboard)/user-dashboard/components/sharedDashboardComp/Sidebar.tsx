@@ -111,11 +111,11 @@ export default function Sidebar({ isOpen, toggleSidebar, role }: SidebarProps) {
   const navigation: NavSection[] =
     role === "professional" ? professionalNavigation : userNavigation;
 
-  useEffect(() => {
-    if (isOpen) {
-      toggleSidebar();
-    }
-  }, [pathname]);
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     toggleSidebar();
+  //   }
+  // }, [pathname]);
 
   useEffect(() => {
     if (isOpen) {
