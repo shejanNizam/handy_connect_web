@@ -39,7 +39,7 @@ export default function SendRequest() {
             </div>
           </div>
         </div>
-        <Link href="/user-dashboard/professionals/request/message">
+        <Link href="/user-dashboard/message">
           <button className="w-12 h-12 bg-[#2563EB] text-white rounded-full flex items-center justify-center shadow-lg shadow-blue-100 hover:bg-blue-700 transition-all active:scale-90">
             <FaRegCommentDots size={20} />
           </button>
@@ -91,9 +91,11 @@ export default function SendRequest() {
           Your review has been submitted successfully. It helps the community
           find great professionals.
         </p>
-        <button className="mt-4 bg-[#2563EB] text-white px-10 py-3 rounded-xl font-bold shadow-lg shadow-blue-100 hover:bg-blue-700 transition-all active:scale-95">
-          Back to Dashboard
-        </button>
+        <Link href="/user-dashboard">
+          <button className=" cursor-pointer mt-4 bg-[#2563EB] text-white px-10 py-3 rounded-xl font-bold shadow-lg shadow-blue-100 hover:bg-blue-700 transition-all active:scale-95">
+            Back to Dashboard
+          </button>
+        </Link>
       </div>
     </div>
   );

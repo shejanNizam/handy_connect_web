@@ -9,8 +9,13 @@ export default function UserLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  // const toggleSidebar = () => {
+  //   setIsSidebarOpen(!isSidebarOpen);
+  // };
+
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    console.log("clicked");
+    setIsSidebarOpen((prev) => !prev);
   };
 
   return (
