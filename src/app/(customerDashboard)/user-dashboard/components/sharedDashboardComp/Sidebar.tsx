@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { IoIosLogOut } from "react-icons/io";
 import {
   MdAccessTime,
   MdAttachMoney,
@@ -17,6 +18,7 @@ import {
   MdStar,
   MdWork,
 } from "react-icons/md";
+import Swal from "sweetalert2";
 import main_logo from "../../../../../assets/main_logo.svg";
 
 type UserRole = "user" | "professional";
@@ -104,15 +106,16 @@ interface SidebarProps {
 
 export default function Sidebar({ isOpen, toggleSidebar, role }: SidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
 
   const navigation: NavSection[] =
     role === "professional" ? professionalNavigation : userNavigation;
 
-  useEffect(() => {
-    if (isOpen) {
-      toggleSidebar();
-    }
-  }, [pathname, isOpen, toggleSidebar]);
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     toggleSidebar();
+  //   }
+  // }, [pathname]);
 
   useEffect(() => {
     if (isOpen) {
@@ -124,6 +127,32 @@ export default function Sidebar({ isOpen, toggleSidebar, role }: SidebarProps) {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, logout!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Logged out",
+          text: "You have successfully logged out.",
+          icon: "success",
+          confirmButtonColor: "#3085d6",
+        }).then(() => {
+          // dispatch(logout());
+          // localStorage.removeItem("user_token");
+          // localStorage.removeItem("selectedCategory");
+          router.push("/login");
+        });
+      }
+    });
+  };
 
   return (
     <>
@@ -198,19 +227,13 @@ export default function Sidebar({ isOpen, toggleSidebar, role }: SidebarProps) {
 
         {/* User Profile */}
         <div className="p-4 border-t border-gray-700 dark:border-gray-800 shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gray-600 dark:bg-gray-700 flex items-center justify-center text-white font-semibold shrink-0">
-              JD
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-white truncate">
-                John Doe
-              </p>
-              <p className="text-xs text-gray-400 truncate capitalize">
-                {role === "professional" ? "Professional" : "Pro Plan"}
-              </p>
-            </div>
-          </div>
+          <button
+            onClick={handleLogout}
+            className="flex  items-center gap-2 text-red-500 cursor-pointer"
+          >
+            <IoIosLogOut size={24} />
+            Logout
+          </button>
         </div>
       </aside>
     </>

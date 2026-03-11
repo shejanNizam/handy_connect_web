@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import heroImage from "../../assets/banner_image.svg";
 
 export default function Hero() {
@@ -15,12 +16,16 @@ export default function Hero() {
             Get AI-powered estimates and hire with confidence.
           </p>
           <div className="flex flex-wrap gap-4 mt-2">
-            <button className="font-inter px-6 py-3 rounded-lg bg-[#F59E0B] text-white font-medium text-sm hover:opacity-90 transition-opacity shadow-sm">
-              Find a Professional
-            </button>
-            <button className="font-inter px-6 py-3 rounded-lg border border-[#F59E0B] text-[#334155] text-sm font-medium hover:bg-gray-50 transition-colors">
-              Become a Provider
-            </button>
+            <Link href="/user-dashboard/professionals">
+              <button className="cursor-pointer font-inter px-6 py-3 rounded-lg bg-[#F59E0B] text-white font-medium text-sm hover:opacity-90 transition-opacity shadow-sm">
+                Find a Professional
+              </button>
+            </Link>
+            <Link href="/signup">
+              <button className="cursor-pointer font-inter px-6 py-3 rounded-lg border border-[#F59E0B] text-[#334155] text-sm font-medium hover:bg-gray-50 transition-colors">
+                Become a Provider
+              </button>
+            </Link>
           </div>
         </div>
         <div className="flex-1 flex justify-center items-center w-full">
